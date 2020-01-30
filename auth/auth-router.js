@@ -42,11 +42,10 @@ router.post('/login', (req, res) => {
 
 function signToken(user) {
   const payload = {
-    userId: user.id,
-    username: user.username
+    user
   };
   const options = {
-    expiresIn: '1d'
+    expiresIn: 60
   };
   return jwt.sign(payload, jwtSecret, options);
 }

@@ -10,6 +10,7 @@ module.exports = (req, res, next) => {
         //not valid token
         res.status(401).json({ you: "can't touch this!" })
       }else {
+        req.user = decodedToken.user;
         next();
       }
     })
